@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    before_action :require_login, except: [:create]
+
     def show
         @comment = Comment.new
         @comment.article_id = @article.id
